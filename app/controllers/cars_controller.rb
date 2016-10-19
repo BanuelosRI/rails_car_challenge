@@ -48,10 +48,6 @@ class CarsController < ApplicationController
 
   def parkingbrake
 
-    @car = YAML.load(session[:car])
-    @car.parkingbrake
-    session[:car]= @car.to_yaml
-    render '/cars/status'
   end
 
 end

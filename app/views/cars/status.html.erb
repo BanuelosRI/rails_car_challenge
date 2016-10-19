@@ -60,8 +60,19 @@ To turn them on, or turn them off, click the button.
 
 <form action="/cars/parkingbrake" method="get">
 
-  <input type="radio" name="p_brake_status" value="Set" checked />Set Brake <br />
-  <input type="radio" name="p_brake_status" value="Release" />Release Brake <br />
+
+  <input type="radio" name="p_brake_status" value="Set" checked />Set Hand Brake <br />
+  <input type="radio" name="p_brake_status" value="Release" />Release Hand Brake <br />
   <input type="submit" value="Submit" />
 
 </form>
+
+
+
+<!-- if speed == 0 then hand brake is available to user
+        if hand brake is "set" then the accelerate button is disabled
+        if hand brake is released then accelerate button is avialble
+
+    if speed is > 0 then hand brake set is not avaiable
+
+    -->
