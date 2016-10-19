@@ -1,0 +1,21 @@
+<h1>Welcome to the Car Simulator!</h1>
+
+<hr />
+
+<p>Enter the make and model year of the car you wish to simulate</p>
+
+<!-- When the submit button is clicked, the create method in the vars controller is executed -->
+<form action="/cars/create" method="get">
+
+  <!-- user enters the make of their dream car -->
+  <label for="car_make_id">Car Make:</label><br>
+  <input type="text" id="car_make_id" name="car_make"><br>
+
+  <!-- user enters the model year of their dream car -->
+  <label for="car_modelyear_id">Car Model Year:</label><br>
+  <input type="text" name="model_year" id="car_modelyear_id"><br />
+
+  <!-- button on click -> 'create' method -->
+  <input type="submit" value="Simulate Car" />
+
+</form>

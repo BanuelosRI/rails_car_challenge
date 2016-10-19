@@ -1,0 +1,67 @@
+<h1>Your new car: </h1>
+
+<p>You created a <%= @car.model_year %> <%= @car.make %>.</p>
+
+<p>Your car has a starting speed of 0 Kmh. Hit accelerate to increase the speed of your car by 10Km/h.</p>
+
+<br />
+
+<!-- When clicking the submit button of this form, the accelerate method in the CarsController class is executed -->
+<form action="/cars/accelerate" method="get">
+
+  <input type="submit" value="Accelerate" />
+
+</form>
+
+<!-- this button allows the user to decrease the speed of their car  -->
+<form action="/cars/brake" method="get">
+  <!-- as long as the speed of the car is higher than 0, the user can continue to brake their car by clicking on the brake button -->
+  <% if @car.speed > 0 %>
+  <!--  keep button active -->
+  <input type="submit" value="Brake" />
+
+  <!-- once the car reaches 0km/h, the user can no longer click the brake button -->
+  <% elsif @car.speed == 0 %>
+    <!-- disable button  -->
+    <input type="submit" value="Brake" disabled />
+  <% end %>
+
+</form>
+
+<br />
+
+<!-- Updates the speed of the car witch each acceleration -->
+
+<p> Your new speed is <%= @car.speed %>.</p>
+
+<br />
+
+Your headlights are currently off.
+
+<br />
+
+To turn them on, or turn them off, click the button.
+
+<br />
+
+<form action="/cars/lights" method="get">
+
+  <input type="submit" value="lights" />
+
+</form>
+
+<% if @car.lights_status == true %>
+  <p> Your headlights are currently on </p>
+<% elsif @car.lights_status == false%>
+  <p> Your headlights are currently off </p>
+<% end %>
+
+<br />
+
+<form action="/cars/parkingbrake" method="get">
+
+  <input type="radio" name="p_brake_status" value="Set" checked />Set Brake <br />
+  <input type="radio" name="p_brake_status" value="Release" />Release Brake <br />
+  <input type="submit" value="Submit" />
+
+</form>
